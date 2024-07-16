@@ -1,7 +1,6 @@
 "use client"
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { CartProductType } from "@/app/product/[productId]/ProductDetails";
-import { json } from "stream/consumers";
 
 
 type CartContextType={
@@ -23,7 +22,7 @@ interface Props{
 
 export const CartContextProvider=(props:Props)=>{
     const [cartTotalQty,setCartTotalQty]=useState(0)
-    const [cartTotalAmount,setCartTotalAmount]=useState();
+    const [cartTotalAmount,setCartTotalAmount]=useState(0);
     const [cartProducts,setCartProducts]=useState<CartProductType[] | null>(null)
 
     const [paymentIntent,setPaymentIntent]=useState<string |null>(null)
