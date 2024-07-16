@@ -89,7 +89,7 @@ export const CartContextProvider=(props:Props)=>{
 
     },[])
 
-    const handleRemoveProductCart=useCallback((product:CartContextType)=>{
+    const handleRemoveProductCart=useCallback((product:CartProductType)=>{
         alert("Removed Successfully")
     if(cartProducts){
         const filteredProducts=cartProducts.filter((item)=>{
