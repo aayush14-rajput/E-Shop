@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/dist/client/components/navigation';
 import { useRouter } from 'next/navigation';
 ;
-import React, { useCallback } from 'react'
+import React, { useCallback,Suspense} from 'react'
 import { IconType } from 'react-icons';
 import queryString from 'query-string';
 
@@ -56,4 +56,10 @@ const Category:React.FC<CategoryProps> = ({label,icon:Icon,selected}) => {
   )
 }
 
-export default Category
+const CategoryWithSuspense: React.FC<CategoryProps> = (props) => (
+    <Suspense fallback={<div>Loading...</div>}>
+        <Category {...props} />
+    </Suspense>
+);
+
+export default CategoryWithSuspense
